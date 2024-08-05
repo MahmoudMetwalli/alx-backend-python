@@ -2,10 +2,9 @@
 '''
 the wait_n coroutine
 '''
-wait_random = __import__('0-basic_async_syntax').wait_random
-import asyncio
-import random
 from typing import List
+import asyncio
+wait_random = __import__('0-basic_async_syntax').wait_random
 
 
 async def wait_n(n: int, max_delay: int) -> List[float]:
@@ -13,4 +12,4 @@ async def wait_n(n: int, max_delay: int) -> List[float]:
     list_of_floats = []
     for i in range(0, n):
         list_of_floats.append(await wait_random(max_delay))
-    return list_of_floats
+    return sorted(list_of_floats)
